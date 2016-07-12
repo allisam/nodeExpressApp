@@ -1,0 +1,23 @@
+{
+  "name": "nodexpressapp",
+  "version": "0.0.1",
+  "description": "Express app with ejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies":{
+	"express": "*",
+	"ejs": "*"
+	},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allisam/nodeExpressApp.git"
+  },
+  "author": "Alli Samson",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/allisam/nodeExpressApp/issues"
+  },
+  "homepage": "https://github.com/allisam/nodeExpressApp#readme"
+}
