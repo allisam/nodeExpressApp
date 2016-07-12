@@ -1,22 +1,46 @@
+//Module Dependencies
 var express = require('express');
+var stylus = require('stylus');
+var nib = require('nib');
+var logger = require('morgan');
 
+//Set port number
+var portnumber = 3000;
+
+
+//Initialize Express
 var app = express();
+console.log('Express has been initialized');
 
-app.get('/', function(req,res){
-		res.render('index.ejs',{title: 'Hello Sadie'});
-		
+function compile(str, path){
+	return stylus(str)
+	.set('filename', path)
+	.use(nib())
+}
+
+//Set View Folder
+app.set('views',__dirname+'/views');
+
+//Initialize Jade
+app.set('view engine', 'jade');
+console.log('Jade has been initialized');
+
+//Stylus Middleware
+app.use(logger('dev'));
+app.use(stylus.middleware(
+	{
+		src:__dirname + '/public',
+		compile: compile
+	}
+));
+app.use(express.static(__dirname+'/public'));
+
+//Render Index Page
+app.get('/', function(req, res){
+	res.render('index',
+	{title: 'Welcome'}
+	);	
 });
 
-app.get('/about', function(req,res){
-		res.render('layout.ejs',{title: 'About Sadie', body:'<h1>Sadie is the best Cat</h1>'});
-		
-});
-
-app.get('/*', function(req,res){
-		res.status(404).render('error.ejs',{title: 'Error'});
-		
-});
-
-
-console.log('App running of localHost:3000');
-app.listen(3000);
+app.listen(portnumber);
+console.log('Server started at ' +portnumber);

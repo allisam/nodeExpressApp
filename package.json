@@ -6,10 +6,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies":{
-	"express": "*",
-	"ejs": "*"
-	},
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.7.0",
+    "nib": "*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/allisam/nodeExpressApp.git"
@@ -19,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/allisam/nodeExpressApp/issues"
   },
-  "homepage": "https://github.com/allisam/nodeExpressApp#readme"
+  "homepage": "https://github.com/allisam/nodeExpressApp#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-stylus": "^2.5.0"
+  }
 }
